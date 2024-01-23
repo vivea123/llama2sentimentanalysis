@@ -86,10 +86,6 @@ def portfolio(tickers, ):
 
     print(regression_model.summary())
 
-    portfolio_returns_df['Cumulative_Return'] = (1 + portfolio_returns_df['Monthly_Return']).cumprod() - 1
-    portfolio_returns_df['Rolling_Return'] = portfolio_returns_df['Monthly_Return'].rolling(window=30).mean()
-    portfolio_returns_df.to_csv(r"C:\Users\User\OneDrive - Lund University\Kandidatuppsats\portfplio.csv")
-
     return_series = portfolio_returns_df["Monthly_Return"]
     cumulative = (1 + return_series).cumprod()
     rolling_max = cumulative.cummax()
